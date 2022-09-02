@@ -21,8 +21,8 @@ app = create_app()
 
 Bootstrap(app)
 
-db.create_all()
-load_posts()
+# db.create_all()
+# load_posts()
 ##CONNECT TO DB - now done in app factory
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
