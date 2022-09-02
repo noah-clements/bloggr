@@ -136,7 +136,4 @@ def init_db_command():
 def init_app(app):
     # app.teardown_appcontext(db.session.close_db)
     app.cli.add_command(init_db_command)
-    with app.app_context():
-        db.drop_all()
-        db.create_all()
-        load_posts()
+    

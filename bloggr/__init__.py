@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_ckeditor import CKEditor
-# import toml
+import toml
 from flask_gravatar import Gravatar
 
 db = SQLAlchemy()
@@ -27,7 +27,7 @@ def create_app(test_config=None):
         app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
         app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
         # load the instance config, if it exists, when not testing
-        # app.config.from_file(".project_config", load=toml.load, silent=True)
+        app.config.from_file(".project_config", load=toml.load, silent=True)
     
     else:
         # load the test config if passed in
