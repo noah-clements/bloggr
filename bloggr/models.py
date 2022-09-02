@@ -70,6 +70,10 @@ def load_posts():
     resp.raise_for_status()
     post_json = resp.json()
 
+    
+    db.drop_all()
+    db.create_all()
+    
     noah = User(
         email="noahclements@gmail.com",
         name="Noah Clements",
@@ -124,10 +128,9 @@ def load_posts():
 @click.command('init-db')
 def init_db_command():
     """Clear the existing data and create new tables."""
-    with app.app_context():
-        db.drop_all()
-        db.create_all()
-        load_posts()
+    db.drop_all()
+    db.create_all()
+    load_posts()
     click.echo('Initialized the database.')
 
 def init_app(app):

@@ -181,6 +181,12 @@ def delete_post(post_id):
     db.session.commit()
     return redirect(url_for('get_all_posts'))
 
+@app.route("/load-posts")
+@login_required
+@admin_only
+def load_route():
+    load_posts()
+    return redirect(url_for('get_all_posts'))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
