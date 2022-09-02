@@ -130,7 +130,7 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/new-post")
+@app.route("/new-post", methods=["GET", "POST"])
 @login_required
 @admin_only
 def add_new_post():
