@@ -24,7 +24,7 @@ class BlogPost(db.Model):
     comments = relationship("Comment", back_populates="parent_post")
 
     @staticmethod
-    def get_posts(by_author:str = None) ->list['BlogPost']:
+    def get_posts(by_author:str = None):
         if by_author:
             return BlogPost.query.filter_by(name=by_author).order_by(desc(BlogPost.id)).all()
         else:
