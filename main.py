@@ -13,7 +13,7 @@ from functools import wraps
 
 
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
-from bloggr.models import BlogPost, User, Comment
+from bloggr.models import BlogPost, User, Comment, load_posts
 from bloggr import create_app, db
 
 app = create_app()
@@ -21,7 +21,8 @@ app = create_app()
 
 Bootstrap(app)
 
-
+db.create_all()
+load_posts()
 ##CONNECT TO DB - now done in app factory
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
