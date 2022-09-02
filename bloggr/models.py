@@ -97,7 +97,8 @@ def load_posts():
         else:
             img_0 = ''
 
-        if (subtitle:=post['uagb_excerpt']) is None:
+        subtitle = post['uagb_excerpt']
+        if subtitle is None:
             subtitle = ""
 
         author = authors[post['uagb_author_info']['display_name']]
